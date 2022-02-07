@@ -1,0 +1,24 @@
+{
+  "name": "smartpassword",
+  "version": "1.0.0",
+  "description": "simple random secure password generator ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thesmartcoder7/smartpassword.git"
+  },
+  "author": "Samuel Martins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thesmartcoder7/smartpassword/issues"
+  },
+  "homepage": "https://github.com/thesmartcoder7/smartpassword#readme",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "clipboardy": "^3.0.0",
+    "commander": "^9.0.0"
+  }
+}
