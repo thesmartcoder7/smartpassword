@@ -9,4 +9,4 @@ program
     .option("-ns , --no-symbols", "password to not include symbols")
     .parse();
 
-console.log(program.opts());
+const { length, save, numbers, symbols } = program.opts();
