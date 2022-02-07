@@ -1,5 +1,7 @@
 const program = require("commander");
+const createPassword = require("./utils/password");
 
+// initializing the project with the different options
 program
     .version("1.0.0")
     .description("simple random secure password generator")
@@ -10,3 +12,8 @@ program
     .parse();
 
 const { length, save, numbers, symbols } = program.opts();
+
+// getitng the generated password.
+const generatedPassword = createPassword(length, numbers, symbols);
+
+console.log(generatedPassword);

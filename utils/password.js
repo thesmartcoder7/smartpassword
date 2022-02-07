@@ -13,5 +13,15 @@ const createPassword = (length, hasNumbers, hasSymbols) => {
         chars += symbols;
     }
 
-    return chars;
+    return generatePassword(length, chars);
 };
+
+const generatePassword = (length, chars) => {
+    let password = "";
+    for (i = 0; i < length; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return password;
+};
+
+module.exports = createPassword;
