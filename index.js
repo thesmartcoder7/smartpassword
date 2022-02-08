@@ -1,5 +1,6 @@
-const program = require("commander");
-const createPassword = require("./utils/password");
+import clipboard from "clipboardy";
+import { Command } from "commander";
+const program = new Command();
 
 // initializing the project with the different options
 program
@@ -13,7 +14,34 @@ program
 
 const { length, save, numbers, symbols } = program.opts();
 
+const alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const integers = "0123456789";
+const exCharacters = "!@#$%^&*_-=+";
+
+const createPassword = (length, hasNumbers, hasSymbols) => {
+    let chars = alpha;
+
+    if (hasNumbers) {
+        chars += integers;
+    }
+
+    if (hasSymbols) {
+        chars += exCharacters;
+    }
+
+    return generatePassword(length, chars);
+};
+
+const generatePassword = (length, chars) => {
+    let password = "";
+    for (let i = 0; i < length; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return password;
+};
+
 // getitng the generated password.
 const generatedPassword = createPassword(length, numbers, symbols);
+clipboard.writeSync(generatedPassword);
 
 console.log(generatedPassword);
