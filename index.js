@@ -1,5 +1,12 @@
 import clipboard from "clipboardy";
 import { Command } from "commander";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+import os from "os";
+import * as fs from "fs";
+import * as path from "path";
+
 const program = new Command();
 
 // initializing the project with the different options
@@ -40,8 +47,23 @@ const generatePassword = (length, chars) => {
     return password;
 };
 
+const savePassword = (password) => {
+    fs.open(path.join(__dirname, "/", "passwords.txt"), "a", 777, (e, id) => {
+        fs.write(id, password + os.EOL, null, "utf-8", () => {
+            fs.close(id, () => {
+                console.log("Password saved!!");
+            });
+        });
+    });
+};
+
 // getitng the generated password.
 const generatedPassword = createPassword(length, numbers, symbols);
+
+if (save) {
+    savePassword(generatedPassword);
+}
+
 clipboard.writeSync(generatedPassword);
 
 console.log(generatedPassword);
