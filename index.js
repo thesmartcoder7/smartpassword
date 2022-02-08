@@ -1,13 +1,15 @@
+#!/usr/bin/env node
+
 import clipboard from "clipboardy";
 import { Command } from "commander";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-const __dirname = dirname(fileURLToPath(import.meta.url));
 import os from "os";
 import * as fs from "fs";
 import * as path from "path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 const program = new Command();
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // initializing the project with the different options
 program

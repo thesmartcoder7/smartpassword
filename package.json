@@ -4,6 +4,8 @@
     "description": "simple random secure password generator ",
     "main": "index.js",
     "type": "module",
+    "preferGlobal": true,
+    "bin": "./index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
